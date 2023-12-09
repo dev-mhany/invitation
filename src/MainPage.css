@@ -1,0 +1,109 @@
+body {
+  font-family: "Rouge Script", cursive;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-family: "Rouge Script", cursive;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("./123.jpg");
+  background-size: 100vw;
+  background-position: top;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+.invitation-text {
+  text-align: center;
+  color: #fff;
+  margin-top: 10px;
+}
+
+.names {
+  color: #ffffff; /* This sets the text color to white */
+  font-size: 3em;
+  line-height: 1.2;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: "Rouge Script", cursive;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* This adds a dark shadow to the text for contrast */
+}
+
+.date {
+  color: #fff;
+  font-size: 3em;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* This adds a dark shadow to the text for contrast */
+}
+
+.countdown {
+  text-align: center; /* This will center the inline-block elements */
+}
+
+.time-component {
+  display: inline-block; /* This makes the element inline with block features */
+  margin: 0 10px; /* Add some horizontal spacing between components */
+  vertical-align: top; /* Align the tops of the inline-block elements */
+}
+
+.time-label {
+  display: block; /* This makes the label a block element, allowing it to occupy its own line */
+  text-transform: uppercase;
+  font-size: 0.2em; /* Adjust this size as needed */
+}
+
+.title {
+  color: rgb(194, 105, 105);
+  font-size: 4em;
+  padding: auto;
+  text-align: center;
+  background: rgba(0, 0, 0, 0);
+  width: 100%;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* This adds a dark shadow to the text for contrast */
+}
+/* MainPage.css */
+
+/* Styles for additional content below the countdown */
+.additional-content {
+  text-align: center;
+  margin-top: 20px; /* Adjust as needed */
+}
+
+.custom-text {
+  font-family: Rouge Script, cursive; /* Replace with the actual font */
+  font-size: 1.5em; /* Adjust as needed */
+  color: #333; /* Adjust to match your design */
+  padding: 10px; /* Adjust as needed */
+}
+
+.decorative-image {
+  max-width: 90vw; /* Adjust to control the size of the image */
+  margin-top: 10px; /* Space above the image */
+  margin-bottom: 0px; /* Space below the image */
+}
+
+.names {
+  font-family: "Rouge Script", cursive;
+  font-size: 3em;
+  line-height: 1.2;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #333; /* This should be the color that fits your design */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
