@@ -1,53 +1,52 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 
-const CountdownTimer = () => {
-  const calculateTimeLeft = () => {
-    const targetDate = new Date("2023-12-21T18:00:00");
-    const targetTime = targetDate.getTime();
-    const difference = targetTime - new Date().getTime();
+const CountdownTimer = ({ onEnd }) => {
+  const targetDate = useMemo(() => new Date("2023-12-02T18:00:00"), []);
 
-    if (difference < 0) {
-      // If the difference is negative, the date has passed
-      return null;
-    } else {
-      // Else, calculate the time left
-      return {
-        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-        minutes: Math.floor((difference / 1000 / 60) % 60),
-        seconds: Math.floor((difference / 1000) % 60),
-      };
-    }
+  const calculateTimePassed = (difference) => {
+    return {
+      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+      minutes: Math.floor((difference / 1000 / 60) % 60),
+      seconds: Math.floor((difference / 1000) % 60),
+    };
   };
 
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+  const calculateTimeSince = useCallback(() => {
+    const currentTime = new Date().getTime();
+    const difference = currentTime - targetDate.getTime();
+
+    if (difference < 0) {
+      return "Finally Engaged!";
+    } else {
+      return calculateTimePassed(difference);
+    }
+  }, [targetDate]);
+
+  const [timeSince, setTimeSince] = useState(calculateTimeSince());
 
   useEffect(() => {
-    // Set up the interval to tick every second
     const timer = setTimeout(() => {
-      const newTimeLeft = calculateTimeLeft();
-      setTimeLeft(newTimeLeft);
+      const newTimeSince = calculateTimeSince();
+      setTimeSince(newTimeSince);
+
+      if (newTimeSince === "Finally Engaged!" && onEnd) {
+        onEnd();
+      }
     }, 1000);
 
-    // If the timeLeft is null, clear the interval
-    if (!timeLeft) {
-      clearTimeout(timer);
-    }
-
-    // Clear timeout if the component is unmounted
     return () => clearTimeout(timer);
-  }, [timeLeft]);
+  }, [timeSince, calculateTimeSince, onEnd]);
 
-  const timerComponents = timeLeft
-    ? Object.keys(timeLeft).map((interval) => {
-        return (
+  const timerComponents =
+    typeof timeSince === "object"
+      ? Object.keys(timeSince).map((interval) => (
           <span key={interval} className="time-component">
-            {timeLeft[interval]}{" "}
+            {timeSince[interval]}{" "}
             <span className="time-label">{interval.toUpperCase()}</span>
           </span>
-        );
-      })
-    : "Finally Engaged!";
+        ))
+      : timeSince;
 
   return <div>{timerComponents}</div>;
 };
