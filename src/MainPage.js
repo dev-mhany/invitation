@@ -53,6 +53,13 @@ const MainPage = () => {
       {isButtonClicked && (
         <>
           <div className="title">{title}</div>
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
           <div className="invitation-text">
             <div className="names">Ahmed & Sohaila</div>
             <div className="date">Thursday, 21 December 2023</div>
@@ -62,9 +69,6 @@ const MainPage = () => {
             <div className="additional-content">
               {/* Custom text */}
               <p className="custom-text">
-                <br />
-                <br />
-                <br />
                 <br />
                 <br />
                 <br />

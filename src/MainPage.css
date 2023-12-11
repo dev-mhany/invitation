@@ -1,3 +1,6 @@
+* {
+  overflow: auto;
+}
 body {
   font-family: "Rouge Script", cursive;
   margin: 0;
@@ -13,6 +16,10 @@ body {
   justify-content: center;
   align-items: center;
   color: #fff;
+  background-image: url("./Untitled\ design\ \(1\).png");
+  background-repeat: no-repeat;
+  background-size: fill;
+  background-position: top;
 }
 .background-image {
   position: absolute;
@@ -57,6 +64,7 @@ body {
 }
 
 .time-component {
+  font-size: 4em;
   color: #fff;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 1); /* This adds a dark shadow to the text for contrast */
   display: inline-block; /* This makes the element inline with block features */
@@ -67,7 +75,7 @@ body {
 .time-label {
   display: block; /* This makes the label a block element, allowing it to occupy its own line */
   text-transform: uppercase;
-  font-size: 0.2em; /* Adjust this size as needed */
+  font-size: 0.3em; /* Adjust this size as needed */
 }
 
 .title {
