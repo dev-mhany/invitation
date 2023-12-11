@@ -157,3 +157,27 @@ body {
   color: #ecdfdf; /* This should be the color that fits your design */
   text-shadow: 2px 2px 8px rgba(245, 104, 104, 0.918);
 }
+.play-button {
+  font-size: "2em";
+  padding: "10px 20px";
+  cursor: "pointer";
+  z-index: 100;
+  position: "revert-layer";
+  top: "50%";
+  left: "50%";
+  transform: "translate(-50%, -50%)";
+  background-color: "rgba(255, 255, 255, 0.8)";
+}
+@media screen and (max-width: 768px) {
+  .play-button {
+    font-size: "2em";
+    padding: "10px 20px";
+    cursor: "pointer";
+    z-index: 100;
+    position: "revert-layer";
+    top: "50%";
+    left: "50%";
+    transform: "translate(-50%, -50%)";
+    background-color: "rgba(255, 255, 255, 0.8)";
+  }
+}

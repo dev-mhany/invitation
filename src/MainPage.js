@@ -41,6 +41,7 @@ const MainPage = () => {
       </audio>
       {!isButtonClicked && (
         <Button
+          className="play-button"
           variant="outlined"
           size="large"
           startIcon={<HeadphonesIcon />}
