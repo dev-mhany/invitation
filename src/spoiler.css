@@ -166,7 +166,7 @@
     color: #666;
     margin: 0;
     width: 100vw;
-    overflow-x: auto;
+    /* overflow-x: auto; */
   }
 
   #spoilerDiv {
@@ -513,7 +513,7 @@
     z-index: 0;
     display: inline-block;
     padding: 5px 5px;
-    overflow: hidden;
+    /* overflow: hidden; */
     vertical-align: bottom;
     transition: color 0.3s ease-out;
   }
@@ -733,7 +733,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    /* overflow: hidden; */
   }
 
   .circles img {
@@ -1013,7 +1013,7 @@
     /* background: #43cea2;  
   background: -webkit-linear-gradient(to right, #185a9d, #43cea2);  
   background: linear-gradient(to right, #185a9d, #43cea2);  */
-    overflow: hidden;
+    /* overflow: hidden; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1079,7 +1079,7 @@
 
     padding: 16px;
 
-    overflow: hidden;
+    /* overflow: hidden; */
     white-space: nowrap;
   }
 
@@ -1986,7 +1986,7 @@
     z-index: 0;
     display: inline-block;
     padding: 5px 5px;
-    overflow: hidden;
+    /* overflow: hidden; */
     vertical-align: bottom;
     transition: color 0.3s ease-out;
   }
@@ -2485,7 +2485,7 @@
     /* background: #43cea2;  
   background: -webkit-linear-gradient(to right, #185a9d, #43cea2);  
   background: linear-gradient(to right, #185a9d, #43cea2);  */
-    overflow: scroll;
+    /* overflow: scroll; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2551,7 +2551,7 @@
 
     padding: 16px;
 
-    overflow: hidden;
+    /* overflow: hidden; */
     white-space: nowrap;
   }
 
