@@ -1,0 +1,4 @@
+body,
+html {
+  overflow: auto; /* or 'scroll' */
+}

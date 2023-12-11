@@ -4,7 +4,7 @@ import CountdownTimer from "./CountdownTimer";
 import myAudio from "./video.mp3";
 import Button from "@mui/material/Button";
 import HeadphonesIcon from "@mui/icons-material/Headphones";
-import floralImage from "./122.png";
+// import floralImage from "./122.png";
 import Spoiler from "./Spoiler"; // Import your Spoiler component
 
 const MainPage = () => {
@@ -36,7 +36,7 @@ const MainPage = () => {
 
       {/* Rest of your component */}
       {isButtonClicked && <div className="background-image" />}
-      <audio ref={audioRef} style={{ display: "none" }}>
+      <audio ref={audioRef} style={{ display: "none" }} loop>
         <source src={myAudio} type="audio/mpeg" />
       </audio>
       {!isButtonClicked && (
@@ -58,13 +58,6 @@ const MainPage = () => {
       {isButtonClicked && (
         <>
           <div className="title">{title}</div>
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
           <div className="invitation-text">
             <div className="names">Ahmed & Sohaila</div>
             <div className="date">Thursday, 21 December 2023</div>
@@ -72,46 +65,30 @@ const MainPage = () => {
               <CountdownTimer onEnd={handleEnd} />
             </div>
             <div className="additional-content">
+              <iframe
+                className="map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d166.83325079462048!2d31.742164055535753!3d30.281045694437484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1457fda16b0c4af9%3A0xe0babf9e64ba46d8!2z2YXZiNmEINin2YTYrtin2YY!5e1!3m2!1sen!2seg!4v1702330787603!5m2!1sen!2seg"
+                title="Engagement Location"
+                // height="450"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+              <br />
+              <br />
+              <br />
+
               {/* Custom text */}
-              <p className="custom-text">
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-              </p>
-              {/* <div className="names">Ahmed & Sohaila</div> */}
+              <p className="custom-text"></p>
+              <div className="arabic">بحضوركم تكتمل فرحتنا</div>
 
               {/* Decorative image */}
-              <img
+              {/* <img
                 src={floralImage}
                 alt="Floral decoration"
                 className="decorative-image"
-              />
+              /> */}
 
               {/* Names styled similarly to the example provided */}
             </div>

@@ -160,14 +160,13 @@
   html {
     margin: 0;
     font-size: 16px;
-    font-family: "Lato", sans-serif;
+    font-family: "Rouge Script", cursive;
     font-weight: 400;
-    line-height: 1.8em;
+    /* line-height: 1.8em; */
     color: #666;
     margin: 0;
     width: 100vw;
-    height: 100vh;
-    overflow-x: hidden;
+    overflow-x: auto;
   }
 
   #spoilerDiv {
@@ -496,18 +495,6 @@
 
   #smlfont {
     font-size: 2rem;
-  }
-
-  .names {
-    font-size: 2rem;
-  }
-  .names h2 {
-    margin: 0.5rem;
-  }
-  .names {
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: row;
   }
 
   .overlay {
@@ -1649,14 +1636,14 @@
   html {
     margin: 0;
     font-size: 16px;
-    font-family: "Lato", sans-serif;
+    font-family: "Rouge Script", cursive;
     font-weight: 400;
-    line-height: 1.8em;
+    /* line-height: 1.8em; */
     color: #666;
     margin: 0;
     width: 100vw;
     height: 100vh;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
   }
 
   #spoilerDiv {
@@ -1984,18 +1971,6 @@
     font-size: 2rem;
   }
 
-  .names {
-    font-size: 2rem;
-  }
-  .names h2 {
-    margin: 0.5rem;
-  }
-  .names {
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: row;
-  }
-
   .overlay {
     display: flex;
     justify-content: space-evenly;
@@ -2230,7 +2205,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    /* overflow: hidden; */
   }
 
   .circles img {
@@ -2502,7 +2477,7 @@
 
   #spoilerDiv {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     position: absolute;
     top: 0;
     left: 0;
@@ -2510,7 +2485,7 @@
     /* background: #43cea2;  
   background: -webkit-linear-gradient(to right, #185a9d, #43cea2);  
   background: linear-gradient(to right, #185a9d, #43cea2);  */
-    overflow: hidden;
+    overflow: scroll;
     display: flex;
     align-items: center;
     justify-content: center;
