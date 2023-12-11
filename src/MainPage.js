@@ -50,6 +50,11 @@ const MainPage = () => {
             padding: "10px 20px",
             cursor: "pointer",
             zIndex: 100,
+            position: "revert-layer",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            backgroundColor: "rgba(255, 255, 255, 0.8)",
           }}
         >
           Play Me
