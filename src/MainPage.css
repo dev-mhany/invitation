@@ -52,10 +52,13 @@ body {
 }
 
 .countdown {
+  color: black;
   text-align: center; /* This will center the inline-block elements */
 }
 
 .time-component {
+  color: #fff;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 1); /* This adds a dark shadow to the text for contrast */
   display: inline-block; /* This makes the element inline with block features */
   margin: 0 10px; /* Add some horizontal spacing between components */
   vertical-align: top; /* Align the tops of the inline-block elements */
