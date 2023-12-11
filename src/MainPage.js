@@ -49,7 +49,7 @@ const MainPage = () => {
             fontSize: "2em",
             padding: "10px 20px",
             cursor: "pointer",
-            zIndex: 1,
+            zIndex: 100,
           }}
         >
           Play Me
