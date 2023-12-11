@@ -4,7 +4,8 @@ import CountdownTimer from "./CountdownTimer";
 import myAudio from "./video.mp3";
 import Button from "@mui/material/Button";
 import HeadphonesIcon from "@mui/icons-material/Headphones";
-import floralImage from "./122.png"; // Adjust the path as necessary
+import floralImage from "./122.png";
+import Spoiler from "./Spoiler"; // Import your Spoiler component
 
 const MainPage = () => {
   const audioRef = useRef(null);
@@ -14,12 +15,13 @@ const MainPage = () => {
   const handleEnd = () => {
     setTitle("Finally Engaged");
   };
+
   const playAudio = () => {
     if (audioRef.current) {
       audioRef.current
         .play()
         .then(() => {
-          setIsButtonClicked(true); // Show the invitation text and background image
+          setIsButtonClicked(true); // Hide the Spoiler and show the invitation text and background image
         })
         .catch((error) => {
           console.error("Error occurred when trying to play audio:", error);
@@ -29,8 +31,11 @@ const MainPage = () => {
 
   return (
     <div className="main-page">
-      {isButtonClicked && <div className="background-image" />}{" "}
-      {/* This div will show the background image */}
+      {/* Conditionally render the Spoiler component */}
+      {!isButtonClicked && <Spoiler />}
+
+      {/* Rest of your component */}
+      {isButtonClicked && <div className="background-image" />}
       <audio ref={audioRef} style={{ display: "none" }}>
         <source src={myAudio} type="audio/mpeg" />
       </audio>
