@@ -4,6 +4,8 @@ import CountdownTimer from "./CountdownTimer";
 import myAudio from "./video.mp3";
 import Button from "@mui/material/Button";
 import HeadphonesIcon from "@mui/icons-material/Headphones";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+
 // import floralImage from "./122.png";
 import Spoiler from "./Spoiler"; // Import your Spoiler component
 
@@ -11,6 +13,8 @@ const MainPage = () => {
   const audioRef = useRef(null);
   const [isButtonClicked, setIsButtonClicked] = useState(false);
   const [title, setTitle] = useState("Engagement Invitation");
+  const mapUrl =
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d166.83325079462048!2d31.742164055535753!3d30.281045694437484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1457fda16b0c4af9%3A0xe0babf9e64ba46d8!2z2YXZiNmEINin2YTYrtin2YY!5e1!3m2!1sen!2seg!4v1702330787603!5m2!1sen!2seg";
 
   const handleEnd = () => {
     setTitle("Finally Engaged");
@@ -71,16 +75,14 @@ const MainPage = () => {
               <CountdownTimer onEnd={handleEnd} />
             </div>
             <div className="additional-content">
-              <iframe
-                className="map"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d166.83325079462048!2d31.742164055535753!3d30.281045694437484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1457fda16b0c4af9%3A0xe0babf9e64ba46d8!2z2YXZiNmEINin2YTYrtin2YY!5e1!3m2!1sen!2seg!4v1702330787603!5m2!1sen!2seg"
-                title="Engagement Location"
-                // height="450"
-                style={{ border: 0 }}
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
+              <Button
+                variant="contained"
+                color="primary"
+                startIcon={<LocationOnIcon />}
+                onClick={() => window.open(mapUrl, "_blank")}
+              >
+                View Location
+              </Button>
               <br />
               <br />
               <br />
