@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import "./MainPage.css";
 import CountdownTimer from "./CountdownTimer";
 import myAudio from "./video.mp3";
@@ -12,6 +12,7 @@ import Spoiler from "./Spoiler"; // Import your Spoiler component
 const MainPage = () => {
   const audioRef = useRef(null);
   const [isButtonClicked, setIsButtonClicked] = useState(false);
+  const [isImageLoaded, setIsImageLoaded] = useState(false); // New state for image load
   const [title, setTitle] = useState("Engagement Invitation");
   const mapUrl =
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d166.83325079462048!2d31.742164055535753!3d30.281045694437484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1457fda16b0c4af9%3A0xe0babf9e64ba46d8!2z2YXZiNmEINin2YTYrtin2YY!5e1!3m2!1sen!2seg!4v1702330787603!5m2!1sen!2seg";
@@ -19,6 +20,13 @@ const MainPage = () => {
   const handleEnd = () => {
     setTitle("Finally Engaged");
   };
+  useEffect(() => {
+    const img = new Image();
+    img.onload = () => {
+      setIsImageLoaded(true); // Set the image load state to true
+    };
+    img.src = "./123.jpg"; // URL of your background image
+  }, []);
 
   const playAudio = () => {
     if (audioRef.current) {
@@ -35,10 +43,12 @@ const MainPage = () => {
 
   return (
     <div className="main-page">
-      {/* Conditionally render the Spoiler component */}
+      <div
+        className={`background-image ${isImageLoaded ? "visible" : ""}`}
+      ></div>
+      <div className={`content ${isImageLoaded ? "visible" : ""}`}></div>
       {!isButtonClicked && <Spoiler />}
 
-      {/* Rest of your component */}
       {isButtonClicked && <div className="background-image" />}
       <audio ref={audioRef} style={{ display: "none" }} loop>
         <source src={myAudio} type="audio/mpeg" />
@@ -86,19 +96,8 @@ const MainPage = () => {
               <br />
               <br />
               <br />
-
-              {/* Custom text */}
               <p className="custom-text"></p>
               <div className="arabic">بحضوركم تكتمل فرحتنا</div>
-
-              {/* Decorative image */}
-              {/* <img
-                src={floralImage}
-                alt="Floral decoration"
-                className="decorative-image"
-              /> */}
-
-              {/* Names styled similarly to the example provided */}
             </div>
           </div>
         </>

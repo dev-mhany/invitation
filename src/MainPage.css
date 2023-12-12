@@ -23,6 +23,20 @@ body {
   background-position: top;
   z-index: -2;
 }
+.background-image.visible,
+.content.visible {
+  visibility: visible;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("./123.jpg");
+  background-size: cover; /* This will scale the image to cover the entire container */
+  background-position: center; /* This centers the image */
+  background-repeat: no-repeat;
+  z-index: -1;
+}
 .background-image {
   position: absolute;
   top: 0;

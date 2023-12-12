@@ -1,52 +1,59 @@
-import React, { useState, useEffect, useMemo, useCallback } from "react";
+import React, {
+  useState,
+  useEffect,
+  useMemo,
+  useCallback,
+  useRef,
+} from "react";
 
 const CountdownTimer = ({ onEnd }) => {
-  const targetDate = useMemo(() => new Date("2023-12-02T18:00:00"), []);
+  const targetDate = useMemo(() => new Date("2023-12-21T18:00:00"), []);
+  const onEndRef = useRef(onEnd); // useRef to keep track of the latest onEnd function
 
-  const calculateTimePassed = (difference) => {
+  useEffect(() => {
+    onEndRef.current = onEnd; // Update the current property with the new onEnd function on each render
+  }, [onEnd]);
+
+  const calculateTimeLeft = (difference) => {
     return {
-      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-      minutes: Math.floor((difference / 1000 / 60) % 60),
-      seconds: Math.floor((difference / 1000) % 60),
+      days: Math.abs(Math.floor(difference / (1000 * 60 * 60 * 24))),
+      hours: Math.abs(Math.floor((difference / (1000 * 60 * 60)) % 24)),
+      minutes: Math.abs(Math.floor((difference / 1000 / 60) % 60)),
+      seconds: Math.abs(Math.floor((difference / 1000) % 60)),
     };
   };
 
   const calculateTimeSince = useCallback(() => {
     const currentTime = new Date().getTime();
-    const difference = currentTime - targetDate.getTime();
+    const difference = targetDate.getTime() - currentTime;
 
-    if (difference < 0) {
-      return "Finally Engaged!";
+    if (difference <= 0) {
+      if (typeof onEndRef.current === "function") {
+        onEndRef.current(); // Call the onEnd function using the ref
+      }
+      return calculateTimeLeft(difference); // Continue showing time passed
     } else {
-      return calculateTimePassed(difference);
+      return calculateTimeLeft(difference);
     }
   }, [targetDate]);
 
-  const [timeSince, setTimeSince] = useState(calculateTimeSince());
+  const [timeLeft, setTimeLeft] = useState(calculateTimeSince());
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      const newTimeSince = calculateTimeSince();
-      setTimeSince(newTimeSince);
-
-      if (newTimeSince === "Finally Engaged!" && onEnd) {
-        onEnd();
-      }
+    const timer = setInterval(() => {
+      const newTimeLeft = calculateTimeSince();
+      setTimeLeft(newTimeLeft);
     }, 1000);
 
-    return () => clearTimeout(timer);
-  }, [timeSince, calculateTimeSince, onEnd]);
+    return () => clearInterval(timer);
+  }, [calculateTimeSince]);
 
-  const timerComponents =
-    typeof timeSince === "object"
-      ? Object.keys(timeSince).map((interval) => (
-          <span key={interval} className="time-component">
-            {timeSince[interval]}{" "}
-            <span className="time-label">{interval.toUpperCase()}</span>
-          </span>
-        ))
-      : timeSince;
+  const timerComponents = Object.keys(timeLeft).map((interval) => (
+    <span key={interval} className="time-component">
+      {timeLeft[interval]}{" "}
+      <span className="time-label">{interval.toUpperCase()}</span>
+    </span>
+  ));
 
   return <div>{timerComponents}</div>;
 };
