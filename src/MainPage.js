@@ -78,7 +78,7 @@ const MainPage = () => {
         <>
           <div className="title">{title}</div>
           <div className="invitation-text">
-            <div className="names">Ahmed & Sohaila</div>
+            <div className="names">Ahmed & Suhaila</div>
             <div className="date">Thursday, 21 December 2023</div>
             <div className="countdown">
               <CountdownTimer onEnd={handleEnd} />
